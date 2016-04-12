@@ -62,5 +62,5 @@ TO_DATE('04-12-2016','mm-dd-yyyy'),
 2
 );
 
-
+commit;
 
