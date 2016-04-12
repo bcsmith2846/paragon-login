@@ -1,0 +1,14 @@
+<?php 
+/** 
+* MySQL Database Configuration 
+* 
+* @file /includes/config.inc.php 
+* @note Replace the settings below with those for your MySQL database. 
+*/ 
+define('DB_HOSTNAME', 'database_hostname'); 
+define('DB_USERNAME', 'Paragon'); 
+define('DB_PASSWORD', 'Paragon'); 
+define('DB_DATABASE', 'VANGUARD'); 
+?> 
+--
+

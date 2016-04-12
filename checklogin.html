@@ -1,0 +1,38 @@
+<?php
+
+$host="localhost"; // Your server
+$username="Paragon"; // Mysql username 
+$password="Paragon"; // Mysql password 
+$db_name="Paragon"; // Database name 
+$tbl_name="USERS"; // Table name 
+
+// Connect to server and select databse.
+oci_connect("$host", "$username", "$password")or die("cannot connect"); 
+oci_set_edition("$db_name")or die("cannot select DB");
+
+// username and password sent from form 
+$username=$_POST['username']; 
+$password=$_POST['password']; 
+
+$username = stripslashes($username);
+$password = stripslashes($password);
+$username = PDO::quote($username);
+$password = PDO::quote($password);
+$sql="SELECT * FROM $tbl_name WHERE username='$username' and password='$password'";
+$result=oci_fetch_all($sql);
+
+// Mysql_num_row is counting table row
+$count=rownum($result);
+
+// If result matched $username and $password, table row must be 1 row
+if($count==1){
+
+// Register $myusername, $mypassword and redirect to file "customer_area.html"
+session_register("username");
+session_register("password"); 
+header("location:customer_area.html");
+}
+else {
+echo "Wrong Username or Password";
+}
+?>
