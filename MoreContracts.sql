@@ -60,7 +60,6 @@ C_ID,
 END_DATE,
 RATE,
 START_DATE,
-NAME,
 E_ID) VALUES (
 7,
 0,
@@ -68,7 +67,6 @@ E_ID) VALUES (
 TO_DATE('04-12-2017','mm-dd-yyyy'),
 132,
 TO_DATE('04-12-2016','mm-dd-yyyy'),
-'License',
 2
 );
 
