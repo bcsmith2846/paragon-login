@@ -1,0 +1,76 @@
+INSERT INTO BILLING_TYPES (ID,NAME) VALUES (5,'Once');
+
+ALTER TABLE CONTRACTS ADD (NAME VARCHAR2(255));
+
+INSERT INTO CONTRACTS (
+ID,
+BT_ID,
+C_ID,
+END_DATE,
+RATE,
+START_DATE,
+NAME) VALUES (
+4,
+5,
+1,
+TO_DATE('04-12-2017','mm-dd-yyyy'),
+127,
+TO_DATE('04-12-2016','mm-dd-yyyy'),
+'License'
+);
+
+INSERT INTO CONTRACTS (
+ID,
+BT_ID,
+C_ID,
+END_DATE,
+RATE,
+START_DATE,
+NAME) VALUES (
+5,
+5,
+1,
+TO_DATE('04-12-2017','mm-dd-yyyy'),
+129,
+TO_DATE('04-12-2016','mm-dd-yyyy'),
+'License'
+);
+
+INSERT INTO CONTRACTS (
+ID,
+BT_ID,
+C_ID,
+END_DATE,
+RATE,
+START_DATE,
+NAME) VALUES (
+6,
+5,
+1,
+TO_DATE('04-12-2017','mm-dd-yyyy'),
+132,
+TO_DATE('04-12-2016','mm-dd-yyyy'),
+'License'
+);
+
+INSERT INTO CONTRACTS (
+ID,
+BT_ID,
+C_ID,
+END_DATE,
+RATE,
+START_DATE,
+NAME,
+E_ID) VALUES (
+7,
+0,
+2,
+TO_DATE('04-12-2017','mm-dd-yyyy'),
+132,
+TO_DATE('04-12-2016','mm-dd-yyyy'),
+'License',
+2
+);
+
+
+
