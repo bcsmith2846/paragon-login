@@ -26,7 +26,7 @@
 	$sql = "SELECT CU.NAME CUSTOMER, CO.NAME CONTRACT, CO.RATE, CO.START_DATE, CO.END_DATE, BT.NAME BILLING_TYPE, CONCAT( E.FIRST_NAME, CONCAT(' ', E.LAST_NAME)) E_NAME FROM CUSTOMERS CU, CONTRACTS CO, EMPLOYEES E, USERS U, BILLING_TYPES BT WHERE CO.E_ID = E.ID AND CO.C_ID = Cu.ID AND E.U_ID = U.ID AND CO.BT_ID = BT.ID AND U.ID=:id ORDER BY CU.ID";
 	
 	$result = oci_parse($connect, $sql);
-	oci_bind_by_name($result, ':id', $_SESSION["userId"]); 
+	oci_bind_by_name($result, ':id', $_SESSION["userId"]);  
 	oci_execute ($result);
 	$count=oci_fetch_all($result,$array, null, null, OCI_FETCHSTATEMENT_BY_ROW);
 	
