@@ -192,7 +192,7 @@ Insert into PARAGON.JOB_TITLES (TITLE) values ('Senior Vice President of Sales')
 Insert into PARAGON.JOB_TITLES (TITLE) values ('Vice President of Technology');
 Insert into PARAGON.JOB_TITLES (TITLE) values ('Developer');
 Insert into PARAGON.JOB_TITLES (TITLE) values ('Consultant');
-Insert into PARAGON.JOB_TITLES (TITLE) values ('Business Analyist');
+Insert into PARAGON.JOB_TITLES (TITLE) values ('Business Analyst');
 REM INSERTING into PARAGON.USERS
 SET DEFINE OFF;
 Insert into PARAGON.USERS (USERNAME,PASS) values ('Admin','Parag0n1');
