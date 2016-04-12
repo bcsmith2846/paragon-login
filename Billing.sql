@@ -24,7 +24,7 @@ commit;
 --------------------------------------------------------
 
   CREATE TABLE "PARAGON"."BILLING_TYPES" 
-   (	"ID" NUMBER(10,0), 
+   (	"ID" NUMBER(10,0) GENERATED AS IDENTITY START WITH 0 INCREMENT BY 1 MINVALUE 0, 
 	"NAME" VARCHAR2(255 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
@@ -38,7 +38,7 @@ commit;
 --------------------------------------------------------
 
   CREATE TABLE "PARAGON"."CONTRACTS" 
-   (	"ID" NUMBER(10,0), 
+   (	"ID" NUMBER(10,0) GENERATED AS IDENTITY START WITH 0 INCREMENT BY 1 MINVALUE 0, 
 	"E_ID" NUMBER(10,0), 
 	"RATE" NUMBER(14,2), 
 	"START_DATE" DATE, 
@@ -57,7 +57,7 @@ commit;
 --------------------------------------------------------
 
   CREATE TABLE "PARAGON"."CUSTOMERS" 
-   (	"ID" NUMBER(10,0), 
+   (	"ID" NUMBER(10,0) GENERATED AS IDENTITY START WITH 1 INCREMENT BY 1 MINVALUE 0, 
 	"NAME" VARCHAR2(255 BYTE), 
 	"ADDRESS" VARCHAR2(255 BYTE), 
 	"PHONE" VARCHAR2(255 BYTE), 
@@ -74,7 +74,7 @@ commit;
 --------------------------------------------------------
 
   CREATE TABLE "PARAGON"."EMPLOYEES" 
-   (	"ID" NUMBER(10,0), 
+   (	"ID" NUMBER(10,0) GENERATED AS IDENTITY START WITH 1 INCREMENT BY 1 MINVALUE 0, 
 	"U_ID" NUMBER(10,0), 
 	"FIRST_NAME" VARCHAR2(255 BYTE), 
 	"LAST_NAME" VARCHAR2(255 BYTE), 
@@ -106,7 +106,7 @@ commit;
 --------------------------------------------------------
 
   CREATE TABLE "PARAGON"."JOB_TITLES" 
-   (	"ID" NUMBER(10,0), 
+   (	"ID" NUMBER(10,0) GENERATED AS IDENTITY START WITH 0 INCREMENT BY 1 MINVALUE 0, 
 	"TITLE" VARCHAR2(255 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
@@ -120,7 +120,7 @@ commit;
 --------------------------------------------------------
 
   CREATE TABLE "PARAGON"."USERS" 
-   (	"ID" NUMBER(10,0), 
+   (	"ID" NUMBER(10,0) GENERATED AS IDENTITY START WITH 0 INCREMENT BY 1 MINVALUE 0, 
 	"USERNAME" VARCHAR2(255 BYTE), 
 	"PASS" VARCHAR2(255 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
@@ -149,7 +149,7 @@ commit;
 --------------------------------------------------------
 
   CREATE TABLE "PARAGON"."USER_GROUP_TYPES" 
-   (	"ID" NUMBER(10,0), 
+   (	"ID" NUMBER(10,0) GENERATED AS IDENTITY START WITH 0 INCREMENT BY 1 MINVALUE 0, 
 	"NAME" VARCHAR2(255 BYTE)
    ) SEGMENT CREATION IMMEDIATE 
   PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
@@ -160,26 +160,26 @@ commit;
   TABLESPACE "USERS" ;
 REM INSERTING into PARAGON.BILLING_TYPES
 SET DEFINE OFF;
-Insert into PARAGON.BILLING_TYPES (ID,NAME) values (0,'Annually');
-Insert into PARAGON.BILLING_TYPES (ID,NAME) values (1,'Biannually');
-Insert into PARAGON.BILLING_TYPES (ID,NAME) values (2,'Semi-Annually');
-Insert into PARAGON.BILLING_TYPES (ID,NAME) values (3,'Monthly');
-Insert into PARAGON.BILLING_TYPES (ID,NAME) values (4,'Semi-Monthly');
+Insert into PARAGON.BILLING_TYPES (NAME) values ('Annually');
+Insert into PARAGON.BILLING_TYPES (NAME) values ('Biannually');
+Insert into PARAGON.BILLING_TYPES (NAME) values ('Semi-Annually');
+Insert into PARAGON.BILLING_TYPES (NAME) values ('Monthly');
+Insert into PARAGON.BILLING_TYPES (NAME) values ('Semi-Monthly');
 REM INSERTING into PARAGON.CONTRACTS
 SET DEFINE OFF;
-Insert into PARAGON.CONTRACTS (ID,E_ID,RATE,START_DATE,END_DATE,C_ID,BT_ID) values (1,1,80,to_date('27-APR-12','DD-MON-RR'),to_date('27-APR-13','DD-MON-RR'),1,0);
-Insert into PARAGON.CONTRACTS (ID,E_ID,RATE,START_DATE,END_DATE,C_ID,BT_ID) values (2,2,80,to_date('27-APR-12','DD-MON-RR'),to_date('27-APR-13','DD-MON-RR'),2,2);
-Insert into PARAGON.CONTRACTS (ID,E_ID,RATE,START_DATE,END_DATE,C_ID,BT_ID) values (3,3,180,to_date('27-APR-12','DD-MON-RR'),to_date('27-APR-12','DD-MON-RR'),3,4);
+Insert into PARAGON.CONTRACTS (E_ID,RATE,START_DATE,END_DATE,C_ID,BT_ID) values (1,80,to_date('27-APR-12','DD-MON-RR'),to_date('27-APR-13','DD-MON-RR'),1,0);
+Insert into PARAGON.CONTRACTS (E_ID,RATE,START_DATE,END_DATE,C_ID,BT_ID) values (2,80,to_date('27-APR-12','DD-MON-RR'),to_date('27-APR-13','DD-MON-RR'),2,2);
+Insert into PARAGON.CONTRACTS (E_ID,RATE,START_DATE,END_DATE,C_ID,BT_ID) values (3,180,to_date('27-APR-12','DD-MON-RR'),to_date('27-APR-12','DD-MON-RR'),3,4);
 REM INSERTING into PARAGON.CUSTOMERS
 SET DEFINE OFF;
-Insert into PARAGON.CUSTOMERS (ID,NAME,ADDRESS,PHONE,EMAIL) values (1,'EDF','123 Fake Street','555-555-5555','EDF@edf.net');
-Insert into PARAGON.CUSTOMERS (ID,NAME,ADDRESS,PHONE,EMAIL) values (2,'ARM','124 Fake Street','555-555-5500','ARM@arm.net');
-Insert into PARAGON.CUSTOMERS (ID,NAME,ADDRESS,PHONE,EMAIL) values (3,'Twin','125 Fake Street','555-555-0000','TWIN@twin.net');
+Insert into PARAGON.CUSTOMERS (NAME,ADDRESS,PHONE,EMAIL) values ('EDF','123 Fake Street','555-555-5555','EDF@edf.net');
+Insert into PARAGON.CUSTOMERS (NAME,ADDRESS,PHONE,EMAIL) values ('ARM','124 Fake Street','555-555-5500','ARM@arm.net');
+Insert into PARAGON.CUSTOMERS (NAME,ADDRESS,PHONE,EMAIL) values ('Twin','125 Fake Street','555-555-0000','TWIN@twin.net');
 REM INSERTING into PARAGON.EMPLOYEES
 SET DEFINE OFF;
-Insert into PARAGON.EMPLOYEES (ID,U_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE) values (1,2,'Trevor','Carter','trevor.carter@paragonenergysoftware.com','832-248-9637');
-Insert into PARAGON.EMPLOYEES (ID,U_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE) values (2,3,'Brenden','Smith','brenden.smith@paragonenergysoftware.com','409-828-0894');
-Insert into PARAGON.EMPLOYEES (ID,U_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE) values (3,0,'Admin','Admin','info@paragonenergysoftware.com','832-867-5309');
+Insert into PARAGON.EMPLOYEES (U_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE) values (2,'Trevor','Carter','trevor.carter@paragonenergysoftware.com','832-248-9637');
+Insert into PARAGON.EMPLOYEES (U_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE) values (3,'Brenden','Smith','brenden.smith@paragonenergysoftware.com','409-828-0894');
+Insert into PARAGON.EMPLOYEES (U_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE) values (0,'Admin','Admin','info@paragonenergysoftware.com','832-867-5309');
 REM INSERTING into PARAGON.EMPLOYEE_JOBS
 SET DEFINE OFF;
 Insert into PARAGON.EMPLOYEE_JOBS (E_ID,JT_ID) values (1,3);
@@ -187,17 +187,18 @@ Insert into PARAGON.EMPLOYEE_JOBS (E_ID,JT_ID) values (2,3);
 Insert into PARAGON.EMPLOYEE_JOBS (E_ID,JT_ID) values (3,0);
 REM INSERTING into PARAGON.JOB_TITLES
 SET DEFINE OFF;
-Insert into PARAGON.JOB_TITLES (ID,TITLE) values (0,'President');
-Insert into PARAGON.JOB_TITLES (ID,TITLE) values (1,'Senior Vice President of Sales');
-Insert into PARAGON.JOB_TITLES (ID,TITLE) values (2,'Vice President of Technology');
-Insert into PARAGON.JOB_TITLES (ID,TITLE) values (3,'Developer');
-Insert into PARAGON.JOB_TITLES (ID,TITLE) values (4,'Consultant');
-Insert into PARAGON.JOB_TITLES (ID,TITLE) values (5,'Business Analyist');
+Insert into PARAGON.JOB_TITLES (TITLE) values ('President');
+Insert into PARAGON.JOB_TITLES (TITLE) values ('Senior Vice President of Sales');
+Insert into PARAGON.JOB_TITLES (TITLE) values ('Vice President of Technology');
+Insert into PARAGON.JOB_TITLES (TITLE) values ('Developer');
+Insert into PARAGON.JOB_TITLES (TITLE) values ('Consultant');
+Insert into PARAGON.JOB_TITLES (TITLE) values ('Business Analyist');
 REM INSERTING into PARAGON.USERS
 SET DEFINE OFF;
-Insert into PARAGON.USERS (ID,USERNAME,PASS) values (0,'Admin','Parag0n1');
-Insert into PARAGON.USERS (ID,USERNAME,PASS) values (2,'Trevor','Test');
-Insert into PARAGON.USERS (ID,USERNAME,PASS) values (3,'Brenden','Test');
+Insert into PARAGON.USERS (USERNAME,PASS) values ('Admin','Parag0n1');
+Insert into PARAGON.USERS (USERNAME,PASS) values ('Dummy','Dummy');
+Insert into PARAGON.USERS (USERNAME,PASS) values ('Trevor','Test');
+Insert into PARAGON.USERS (USERNAME,PASS) values ('Brenden','Test');
 REM INSERTING into PARAGON.USER_GROUPS
 SET DEFINE OFF;
 Insert into PARAGON.USER_GROUPS (U_ID,UGT_ID) values (0,2);
@@ -205,9 +206,9 @@ Insert into PARAGON.USER_GROUPS (U_ID,UGT_ID) values (2,0);
 Insert into PARAGON.USER_GROUPS (U_ID,UGT_ID) values (3,1);
 REM INSERTING into PARAGON.USER_GROUP_TYPES
 SET DEFINE OFF;
-Insert into PARAGON.USER_GROUP_TYPES (ID,NAME) values (0,'User');
-Insert into PARAGON.USER_GROUP_TYPES (ID,NAME) values (1,'Elevated');
-Insert into PARAGON.USER_GROUP_TYPES (ID,NAME) values (2,'Admin');
+Insert into PARAGON.USER_GROUP_TYPES (NAME) values ('User');
+Insert into PARAGON.USER_GROUP_TYPES (NAME) values ('Elevated');
+Insert into PARAGON.USER_GROUP_TYPES (NAME) values ('Admin');
 --------------------------------------------------------
 --  DDL for Index SYS_C0024492
 --------------------------------------------------------
