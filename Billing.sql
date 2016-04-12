@@ -1,3 +1,24 @@
+DROP USER "PARAGON" CASCADE;
+CREATE USER Paragon identified by Paragon;
+DEFAULT TABLESPACE USERS
+TEMPORARY TABLESPACE TEMP;
+GRANT CREATE SESSION TO PARAGON;
+GRANT ALL PRIVILEGES TO PARAGON;
+grant aq_administrator_role to PARAGON with admin option;
+grant aq_user_role to PARAGON with admin option;
+grant authenticateduser to PARAGON with admin option;
+grant connect to PARAGON with admin option;
+grant dba to PARAGON;
+GRANT ALL PRIVILEGES ON DBMS_AQADM TO PARAGON;
+GRANT ALL PRIVILEGES ON DBMS_AQ TO PARAGON;
+GRANT CREATE TABLESPACE TO PARAGON;
+GRANT ALTER TABLESPACE TO PARAGON;
+GRANT DROP TABLESPACE TO PARAGON;
+GRANT MANAGE TABLESPACE TO PARAGON;
+GRANT UNLIMITED TABLESPACE TO PARAGON;
+commit;
+
+
 --------------------------------------------------------
 --  DDL for Table BILLING_TYPES
 --------------------------------------------------------
