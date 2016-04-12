@@ -31,7 +31,7 @@
 	$count=oci_fetch_all($result,$array, null, null, OCI_FETCHSTATEMENT_BY_ROW);
 	
 
-	echo "<table><tr><th>Client</th><th>Contract</th><th>Rate</th><th>Start Date</th><th>End Date</th><th>Type</th><th>Employee</th></tr>\n";
+	echo "<table border=\"1\"><tr><th>Client</th><th>Contract</th><th>Rate</th><th>Start Date</th><th>End Date</th><th>Type</th><th>Employee</th></tr>\n";
 	
 	foreach($array as $row){
 		echo "<tr>\n";
