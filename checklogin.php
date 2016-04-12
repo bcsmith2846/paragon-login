@@ -25,6 +25,13 @@ if($count==1){
 session_start(); 
 $_SESSION["userId"] = $array["ID"][0];
 
+$sql = "SELECT UGT_ID FROM USER_GROUPS where U_ID ={$_SESSION["userId"]} order by UGT_ID desc";
+	$result = oci_parse($connect, $sql);
+	oci_execute ($result);
+	$count=oci_fetch_all($result,$array);
+	
+	$_SESSION["group"]=$array["UGT_ID"][0];
+
 header("location:landingpage.php");
 }
 else {
