@@ -3,7 +3,7 @@
 </center>
 
 <?php session_start(); 
-
+	setlocale(LC_MONETARY, 'en_US');
 	$db="(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = VANGUARD)))"; // server
 	$un="Paragon"; // username 
 	$pass="Paragon"; // password 
@@ -31,15 +31,40 @@
 	$count=oci_fetch_all($result,$array, null, null, OCI_FETCHSTATEMENT_BY_ROW);
 	
 
-	echo "<table border=\"1\"><tr><th>Client</th><th>Contract</th><th>Rate</th><th>Start Date</th><th>End Date</th><th>Type</th><th>Employee</th></tr>\n";
+	echo "<table border=\"1\"><tr><th>Client</th><th>Contract</th><th>Rate</th><th>Type</th><th>Employee</th><th>Start Date</th><th>End Date</th></tr>\n";
 	
 	foreach($array as $row){
 		echo "<tr>\n";
-		foreach($row as $cell) {
-			echo "<td style=\"padding:5px\">\n";
-			echo $cell . "\n";
-			echo "</td>\n";
-		}
+		echo "<td style=\"padding:5px\">";
+			echo $row["CUSTOMER"];
+		echo "</td>";
+		
+		echo "<td style=\"padding:5px\">";
+			if(empty(trim($row["CONTRACT"])))
+				echo "Billable";
+			else
+				echo $row["CONTRACT"];
+		echo "</td>";
+		
+		echo "<td style=\"padding:5px\">";
+			echo sprintf("$%01.2f",$row["RATE"]);
+		echo "</td>";
+		
+		echo "<td style=\"padding:5px\">";
+			echo $row["BILLING_TYPE"];
+		echo "</td>";
+		
+		echo "<td style=\"padding:5px\">";
+			echo $row["E_NAME"];
+		echo "</td>";
+		
+		echo "<td style=\"padding:5px\">";
+			echo $row["START_DATE"];
+		echo "</td>";
+		
+		echo "<td style=\"padding:5px\">";
+			echo $row["END_DATE"];
+		echo "</td>";
 		echo "</tr>\n";
 	}
 	
