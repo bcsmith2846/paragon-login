@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION['userId'] == 0)
+if($_SESSION['userId'] == NULL)
 	header("location:login.html");
 
 ?>
