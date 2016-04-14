@@ -17,15 +17,13 @@
 	oci_execute ($result);
 	$count=oci_fetch_all($result,$array, null, null, OCI_FETCHSTATEMENT_BY_ROW);
 
-	echo "<table border=\"1\"><tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone #</th></tr>\n";
+	echo "<table border=\"1\"><tr><th>Name</th><th>Email</th><th>Phone #</th></tr>\n";
 	
 	foreach($array as $row){
 		echo "<tr>\n";
 		echo "<td style=\"padding:5px\">";
 			echo $row["FIRST_NAME"];
-		echo "</td>";
-		
-		echo "<td style=\"padding:5px\">";
+			echo " ";
 			echo $row["LAST_NAME"];
 		echo "</td>";
 		
